@@ -2,7 +2,7 @@
 (function () {
 
     // set variables
-    var url = "http://cmd.jiskefet.io/api/runs?orderBy=runNumber&orderDirection=DESC";
+    var url = "http://cmd.jiskefet.io/api/runs?orderBy=o2StartTime&orderDirection=DESC";
     var key = "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6ImE4ZDAyYmJiLTg3NjYtNDZhYS1iNDE3LWQyYzU3Zjk5ODE4YyIsImlzX3N1YnN5c3RlbSI6InRydWUiLCJwZXJtaXNzaW9uX2lkIjoiNCIsImlhdCI6MTU1NzMxNDAzNCwiZXhwIjoxNTg4ODUwMDM0fQ.G57X5Zdng33djii3S5pzWpu5q5GITX8DMsmJ4xOiNBc"
     var oldData = "";
 
@@ -32,10 +32,10 @@
         // debug
         console.log(data);
 
-        // the table
+        // table
         const flpTable = document.getElementById("flptable").getElementsByTagName('tbody')[0];
 
-        // Clear Table
+        // clear Table
         for(var i = 0; i <flpTable.rows.length; i++) {
             flpTable.deleteRow(i -1);
         }
@@ -65,10 +65,21 @@
             // Create Texts
             var items = data.data.items;
 
-            var text1  = document.createTextNode(items[i]['runNumber']) // Row Number
-            var text2  = document.createTextNode(items[i]['O2StartTime']) // Time o2 start
+            var text1 = document.createElement('a');
+            var linktext = document.createTextNode(items[i]['runNumber']);
+            text1.appendChild(linktext)
+            text1.href = "http://cmd.jiskefet.io/runs/" + items[i]['runNumber']
+
+            var itemstart1 = items[i]['O2StartTime'].split('T')
+            var timestamp1 = itemstart1[0] +" "+ itemstart1[1].slice(0, 8)
+            var text2  = document.createTextNode(timestamp1) // Time o2 start
+
             var text3  = document.createTextNode(items[i]['O2EndTime']) // Time 02 end
-            var text4  = document.createTextNode(items[i]['TrgStartTime']) // Time trg start
+
+            var itemstart2 = items[i]['TrgStartTime'].split('T')
+            var timestamp2 = itemstart2[0] + " "+ itemstart2[1].slice(0, 8);
+            var text4  = document.createTextNode(timestamp2) // Time trg start
+            
             var text5  = document.createTextNode(items[i]['TrgEndTime']) // time trg end
             var text6  = document.createTextNode(items[i]['activityId']) // activity id
             var text7  = document.createTextNode(items[i]['runType']) // run type 
