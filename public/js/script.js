@@ -74,13 +74,24 @@
             var timestamp1 = itemstart1[0] +" "+ itemstart1[1].slice(0, 8)
             var text2  = document.createTextNode(timestamp1) // Time o2 start
 
-            var text3  = document.createTextNode(items[i]['O2EndTime']) // Time 02 end
+            console.log(items[i]['O2EndTime'] == null);
 
+            if(items[i]['O2EndTime'] == null) {
+                var text3 = document.createTextNode("In Progress")// Time 02 end
+            } else {
+                var text3 = document.createTextNode(items[i]['O2EndTime']) 
+            }
+            
             var itemstart2 = items[i]['TrgStartTime'].split('T')
             var timestamp2 = itemstart2[0] + " "+ itemstart2[1].slice(0, 8);
             var text4  = document.createTextNode(timestamp2) // Time trg start
-            
-            var text5  = document.createTextNode(items[i]['TrgEndTime']) // time trg end
+
+            if(items[i]['TrgEndTime']) {
+                var text5  = document.createTextNode(items[i]['TrgEndTime']) // time trg end
+            } else {
+                var text5  = document.createTextNode("In Progress") // time trg end
+            }
+
             var text6  = document.createTextNode(items[i]['activityId']) // activity id
             var text7  = document.createTextNode(items[i]['runType']) // run type 
             var text8  = document.createTextNode(items[i]['runQuality']) // run quality
