@@ -26,4 +26,8 @@ app.get('/offline', function(req, res) {
     res.render('pages/offline')
 })
 
+app.get('/flp', function(req, res) {
+    res.render('pages/flp')
+})
+
 app.listen(port, () => console.log(`App running, listening on port ${port}!`))
