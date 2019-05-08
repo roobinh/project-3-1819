@@ -1,20 +1,18 @@
 
 (function () {
 
-    // fill table on load
-    document.onload = function() {
-        checkForFileChange(url, key);
-    }
-
     // set variables
     var url = "http://cmd.jiskefet.io/api/runs?orderBy=runNumber&orderDirection=DESC";
     var key = "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6ImE4ZDAyYmJiLTg3NjYtNDZhYS1iNDE3LWQyYzU3Zjk5ODE4YyIsImlzX3N1YnN5c3RlbSI6InRydWUiLCJwZXJtaXNzaW9uX2lkIjoiNCIsImlhdCI6MTU1NzMxNDAzNCwiZXhwIjoxNTg4ODUwMDM0fQ.G57X5Zdng33djii3S5pzWpu5q5GITX8DMsmJ4xOiNBc"
     var oldData = "";
 
+    // fill table on load
+    checkForFileChange(url, key);
+
     // get request, checks if new file is same as previous file
     function checkForFileChange(url, key) {
         var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", url, true);
+        xmlHttp.open("GET", url, false);
         xmlHttp.setRequestHeader("Authorization", key);
         xmlHttp.send();
 
