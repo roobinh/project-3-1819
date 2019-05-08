@@ -6,6 +6,5 @@
   "display": "standalone",
   "Scope": "/",
   "start_url": "/home",
-  "icons": null,
   "splash_pages": null
 }
