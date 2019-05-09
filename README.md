@@ -56,15 +56,17 @@ _In het volgende hoofdstuk leest u hoe ik deze opdracht heb uitgevoerd._
 
 <a name="2"></a>
 
-## Hoofdstuk 2 | Opdracht
+## Hoofdstuk 2 | Uitvoering
 
+Het plan voor deze opdracht is het volgende: De gekregen data wordt netjes in een tabel verwerkt. Zodra er een nieuwe 'run' wordt toegevoegd, krijgt de gebruiker een Google Chrome melding (d.m.v. Service Workers). Op deze manier ben je op de hoogte van nieuwe updates.
 
-<a name="3"></a>
+Om met de data te kunnen werken, moet er eerst data gegenereerd worden. Om deze data zo real-time mogelijk te lezen, heb ik eerst geprobeerd om de [jiskefet-ui](https://github.com/SoftwareForScience/jiskefet-ui) en [jiskefet-api](https://github.com/SoftwareForScience/jiskefet-api) lokaal met MySQL te draaien. Op deze manier kon ik dan lokaal database query's uitvoeren en data verwerken. Tot mijn grote spijt ben ik na twee dagen hard proberen en bugs fixen erachter gekomen dat de API alleen op linux machines draait. Hierdoor ben ik helaas anderhalve dag aan tijd verloren.
 
-## Hoofdstuk 3 | Opdracht
+Omdat het niet is gelukt de API lokaal te draaien, gebruik ik nu de [online api](http://cmd.jiskefet.io/). Deze ondersteunt helaas geen sockets, dus heb ik geen socket verbinding kunnen gebruiken. Wat er nu gebeurt is het volgende:
 
+Er draait een NodeJS server. Bij het openen van de site stuurt de server een request naar de API. Deze data wordt vervolgens (net als op de site) netjes op de site weergegeven. Vervolgens stuurt de site elke 10 seconden een nieuwe request, en vergelijkt het antwoord hiervan met de vorige request. Is er een verandering -> stuur dan een melding naar de gebruiker.
 
 <a name="4"></a>
 
-## Hoofdstuk 4 | Opdracht
+## Hoofdstuk 3 | Conclusie
 
