@@ -1,34 +1,70 @@
 # Project 3 @cmda-minor-web · 2018-2019
 
 ## Design for Real-Time
-Het project vindt plaats bij in ons eigen lokaal. Maandagochtend is om 9.30 uur de kickoff (bij de oprachtgever), vrijdag zijn de presentaties van de resultaten (bij de opdrachtgever). In een week bouwt iedere student een eigen prototype ter onderbouwing van aanbevelingen aan de opdrachtgevers (CERN & Lifely). De aanbevelingen betreffen het designen voor Real-Time web applicaties. Technieken geleerd bij [Web Design](https://github.com/cmda-minor-web/web-design-1819) en [Real-Time Web](https://github.com/cmda-minor-web/real-time-web-1819) worden toegepast bij het bouwen van de de prototypes en et schrijven van de aanbevelingen.
+_Voor het derde en laatste project van dit schooljaar bouwt iedere student eigen prototype ter onderbouwing van aanbevelingen aan de opdrachtgever CERN. De aanbevelingen betreffen het designen voor Real-Time web applicaties. Technieken geleerd bij [Web Design](https://github.com/cmda-minor-web/web-design-1819) en [Real-Time Web](https://github.com/cmda-minor-web/real-time-web-1819) worden toegepast bij het bouwen van de de prototypes en et schrijven van de aanbevelingen._
 
-## Programma
-Maandag - 9.30 - kickoff
-Woensdag - voortgangbespreking
-Vrijdag presentatie
+## Table of Content
+1. [Opdracht](#1)
+2. [Uitvoering](#2)
+3. [](#3)
+4. [Conclusie](#4)
 
-## Werkwijze en Criteria
-### Werkwijze
-Full-time week werken aan prototypes / proof of concepts over designen voor real-time web applicaties. Vrijdag is de pitch! Student laat zien dat hij/zij de vakken [Web Design](https://github.com/cmda-minor-web/web-design-1819) en [Real-Time Web](https://github.com/cmda-minor-web/real-time-web-1819) begrijpt en beheerst.
+<a name="1"></a>
 
-Iedere dag zijn er coaches aanwezig voor coaching en feedback. We sluiten de dag af met een stand up, om de status door te spreken. Waar ben je mee bezig? Loop je ergens vast of heb je hulp nodig? Waar sta je?
+## Hoofdstuk 1 | Opdracht
+Het bedrijf cern is een Europese organisatie die onderzoek doet naar elementaire deeltjes. De organisatie is gevestigd in Meryrin, Zwitserland. Overal ter wereld zijn mensen bezig met het verbeteren van de hard- en software van deze enorme machine. De machine leest en genereerd extreem veel data. Deze data moet vervolgens online verwerkt worden.
 
-### Beoordeling
-Tijdens de beoordeling krijg je feedback op het resultaat en op je functioneren. De vakdocenten beoordelen In hoeverre je in het project laten zien dat je de bijhorende vakken beheerst en goed hebt toegepast. De opdrachtgver is geïnteresseerd in hoeverre je oplossing voldoet aan de eisen die zijzelf stellen aan hun producten. Misschien laat je wel wat zien waar ze zelf nog niet aan gedacht hebben?
+Met de data die we krijgen konden we kiezen uit de volgende opdrachten
+```
+(O2B-100)
+ALS Gebruiker WIL IK op al mijn devices een intuïtieve webapplicatie kunnen gebruiken
+ZODAT Ik door alle opgeslagen metadata kan zoeken.
 
-Het project telt als AVV mee met de Meesterproef.
+(O2B-102)
+ALS Gebruiker WIL IK notificaties ontvangen via alerts / flashcards
+ZODAT ik op een gemakkelijke manier notificaties kan ontvangen zonder hiervoor permanent screen real estate in te moeten leveren.
 
-### Feedback over functioneren
-Je hebt een leergierig, gedreven en zelfredzame houding nodig om de minor te kunnen halen. Welke vaardigheden heb je laten zien? Onderzoekend vermogen? Creativiteit? Conceptueel? In hoeverre komen je houding en verworven vaardigheden overeen met wat een frontender in de praktijk nodig heeft?
+(O2B-97)
+ALS Gebruiker WIL IK makkelijk rich text kunnen gebruiken met een simpele te gebruiken editor
+ZODAT ik geen markdown commando's hoef te leren.
 
-### Web Design
-Het vak [Web Design](https://github.com/cmda-minor-web/web-design-1819) gaat over het ontwerpen en testen van Interactie. Het voordeel van een Frontend Developer (of Web Designer) is dat die techniek begrijpt, kan toepassen én verstand heeft van UX en design. Als je Web technieken begrijpt kun je je ideeën snel prototypen en testen met echte gebruikers, in een browser. Je kan dan aanpassingen doorvoeren, uitproberen en weer testen
+(O2B-99)
+ALS Gebruiker WIL IK bepaalde berichten gepusht krijgen als notificatie
+ZODAT ik niet de pagina hoef te refreshen (websocket op backend).
 
-### Real-Time Web
-Het vak [Real-Time Web](https://github.com/cmda-minor-web/real-time-web-1819) gaat over het bouwen van een betekenisvolle real-time applicatie. Hierin leer je hoe je een open verbinding (web socket) opzet tussen de client en de server. En hoe je in real-time data biede kanten op kunt versturen.
+(O2B-99)
+ALS Gebruiker WIL IK live op de hoogte gehouden worden van FLP informatie  (counters)
+ZODAT Ik deze informatie kan gebruiken zonder de webapplicatie te moeten refreshen.
 
-### Oplevering & criteria
-- Presentatie met je bevindingen bij de opdrachtgever. 
-- Github met je code en readme.
+(O2B-101)
+ALS Sysadmin WIL IK dat er meer test cases worden geschreven voor de front-end
+ZODAT ik met een bepaalde zekerheid kan zeggen dat de applicatie doet waarvoor deze geschreven is
+
+(O2B-90)
+ALS Gebruiker WIL IK een simpele maar gebruiksvriendelijke manier om tags te maken en aan te passen
+ZODAT Logs of threads gemakkelijker getagt kunnen worden en daarmee makkelijker te doorzoeken / filteren.
+```
+
+Ik heb gekozen voor de opdracht:
+```
+(O2B-99)
+ALS Gebruiker WIL IK live op de hoogte gehouden worden van FLP informatie  (counters)
+ZODAT Ik deze informatie kan gebruiken zonder de webapplicatie te moeten refreshen.
+```
+
+In het volgende hoofdstuk leest u hoe ik deze opdracht heb uitgevoerd.
+
+<a name="2"></a>
+
+## Hoofdstuk 2 | Opdracht
+
+
+<a name="3"></a>
+
+## Hoofdstuk 3 | Opdracht
+
+
+<a name="4"></a>
+
+## Hoofdstuk 4 | Opdracht
 
