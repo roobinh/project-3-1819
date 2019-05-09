@@ -2,7 +2,7 @@
 (function () {
 
     // set variables
-    var url = "http://cmd.jiskefet.io/api/runs?orderBy=o2StartTime&orderDirection=DESC";
+    var url = "http://cmd.jiskefet.io/api/runs?orderBy=runNumber&orderDirection=DESC";
     var key = "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6ImE4ZDAyYmJiLTg3NjYtNDZhYS1iNDE3LWQyYzU3Zjk5ODE4YyIsImlzX3N1YnN5c3RlbSI6InRydWUiLCJwZXJtaXNzaW9uX2lkIjoiNCIsImlhdCI6MTU1NzMxNDAzNCwiZXhwIjoxNTg4ODUwMDM0fQ.G57X5Zdng33djii3S5pzWpu5q5GITX8DMsmJ4xOiNBc"
     var oldData = "";
 
@@ -12,7 +12,8 @@
     // get request, checks if new file is same as previous file
     function checkForFileChange(url, key) {
         var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", url, false);
+        // xmlHttp.open("GET", url, false);
+        xmlHttp.open("GET", "/data/runs.json", false);
         xmlHttp.setRequestHeader("Authorization", key);
         xmlHttp.send();
 
@@ -73,8 +74,6 @@
             var itemstart1 = items[i]['O2StartTime'].split('T')
             var timestamp1 = itemstart1[0] +" "+ itemstart1[1].slice(0, 8)
             var text2  = document.createTextNode(timestamp1) // Time o2 start
-
-            console.log(items[i]['O2EndTime'] == null);
 
             if(items[i]['O2EndTime'] == null) {
                 var text3 = document.createTextNode("In Progress")// Time 02 end
