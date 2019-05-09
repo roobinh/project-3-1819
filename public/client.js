@@ -1,6 +1,5 @@
 
 (function () {
-
     // set variables
     var url = "http://cmd.jiskefet.io/api/runs?orderBy=runNumber&orderDirection=DESC";
     var key = "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6ImE4ZDAyYmJiLTg3NjYtNDZhYS1iNDE3LWQyYzU3Zjk5ODE4YyIsImlzX3N1YnN5c3RlbSI6InRydWUiLCJwZXJtaXNzaW9uX2lkIjoiNCIsImlhdCI6MTU1NzMxNDAzNCwiZXhwIjoxNTg4ODUwMDM0fQ.G57X5Zdng33djii3S5pzWpu5q5GITX8DMsmJ4xOiNBc"
@@ -11,6 +10,8 @@
 
     // get request, checks if new file is same as previous file
     function checkForFileChange(url, key) {
+        console.log("checking for file change");
+
         var xmlHttp = new XMLHttpRequest();
         // xmlHttp.open("GET", url, false);
         xmlHttp.open("GET", "/data/runs.json", false);
@@ -18,20 +19,17 @@
         xmlHttp.send();
 
         if(xmlHttp.responseText === oldData) {
-            console.log("same data.")
-            //do nothing
+            console.log("Same Data.")
         } else {
-            console.log("new data!")
+            console.log("Data Changed!")
             oldData = xmlHttp.responseText;
             fillTable(JSON.parse(xmlHttp.responseText));
+            send();
         }
     }
 
     // fill table with data
     function fillTable(data) {
-
-        // debug
-        console.log(data);
 
         // table
         const flpTable = document.getElementById("flptable").getElementsByTagName('tbody')[0];
@@ -123,9 +121,97 @@
 
     // check for file change every 10 seconds
     setInterval(function() {
-        console.log("checking for file change");
         checkForFileChange(url, key);
     }, 10000);
+
+
+    // ------------------- Service Worker -------------------------
+
+    // set public vapid key
+    const publicVapidKey = 'BDqsx1vZb0l1YgZra70RdNv42uK0gAf3_2TQh4ZPvFgOot_ep6KFwXJb-vZWBmoiFkSuh2SAh2r1FPEnyu-k9oQ'
+
+    // register service worker
+    async function registerWorker() {
+        // check for service worker
+        if('serviceWorker' in navigator) {
+            send().catch(err => console.error(err));
+        } else {
+            console.log("Service worker not available in your current browser.")
+        }
+    }
+
+    // send notification
+    async function send() {
+        console.log('Registering service worker...');
+        const register = await navigator.serviceWorker.register('worker.js', {
+            scope: '/'
+        });
+        console.log('Service worker registered.');
+        
+        console.log(register);
+
+        var convertedPublicKey = urlBase64ToUint8Array(publicVapidKey);
+        
+        console.log("Register Push...");
+        const subscription = await register.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: convertedPublicKey
+        })
+        console.log("Push registered.")
+
+        console.log(subscription);
+        
+        console.log("Sending Notification")
+        await fetch('/subscribe', {
+            method: 'POST',
+            body: JSON.stringify(subscription),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+        console.log("Push send!")
+    }
+
+    // function to convert vapid key
+    function urlBase64ToUint8Array(base64String) {
+        const padding = '='.repeat((4 - base64String.length % 4) % 4);
+        const base64 = (base64String + padding)
+        .replace(/-/g, '+')
+        .replace(/_/g, '/');
+    
+        const rawData = window.atob(base64);
+        const outputArray = new Uint8Array(rawData.length);
+    
+        for (let i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+        }
+
+        return outputArray;
+    }
+
+    // disable service workers
+    function disableWorker() {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            } 
+        })
+
+        location.reload();
+    }
+
+    // check if service worker is running
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+        if(registrations.length == 1) {
+            console.log("sw running...")
+        } else {
+            registerWorker();
+        }
+    });
+
+    
 })();
+
+
 
 
