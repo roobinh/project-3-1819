@@ -1,7 +1,7 @@
 # Project 3 @cmda-minor-web · 2018-2019
 
 ## Design for Real-Time
-_Voor het derde en laatste project van dit schooljaar bouwt iedere student eigen prototype ter onderbouwing van aanbevelingen aan de opdrachtgever CERN. De aanbevelingen betreffen het designen voor Real-Time web applicaties. Technieken geleerd bij [Web Design](https://github.com/cmda-minor-web/web-design-1819) en [Real-Time Web](https://github.com/cmda-minor-web/real-time-web-1819) worden toegepast bij het bouwen van de de prototypes en et schrijven van de aanbevelingen._
+_Voor het derde (en laatste) project van deze minor bouwt iedere student eigen prototype voor de opdrachtgever CERN. De aanbevelingen betreffen het designen voor Real-Time web applicaties. Technieken geleerd bij [Web Design](https://github.com/cmda-minor-web/web-design-1819) en [Real-Time Web](https://github.com/cmda-minor-web/real-time-web-1819) worden toegepast bij het bouwen van de de prototypes en het schrijven van de aanbevelingen._
 
 ## Table of Content
 1. [Opdracht](#1)
@@ -12,9 +12,9 @@ _Voor het derde en laatste project van dit schooljaar bouwt iedere student eigen
 <a name="1"></a>
 
 ## Hoofdstuk 1 | Opdracht
-Het bedrijf cern is een Europese organisatie die onderzoek doet naar elementaire deeltjes. De organisatie is gevestigd in Meryrin, Zwitserland. Overal ter wereld zijn mensen bezig met het verbeteren van de hard- en software van deze enorme machine. De machine leest en genereerd extreem veel data. Deze data moet vervolgens online verwerkt worden.
+Cern is een grote Europese organisatie die onderzoek doet naar elementaire deeltjes. De organisatie is gevestigd in [Meryrin, Zwitserland](https://www.google.nl/maps/place/CERN+Filtration+Plant/@46.2351765,6.0480437,15z/data=!4m8!1m2!2m1!1scern!3m4!1s0x0:0x1fba9665acdd729c!8m2!3d46.2296427!4d6.0532925?hl=nl). Overal ter wereld zijn mensen bezig met het verbeteren van de hard- en software van deze enorme machine. De machine leest en schrijft extreem veel data. Deze data moet vervolgens online mee gewerkt kunnen worden.
 
-Met de data die we krijgen konden we kiezen uit de volgende opdrachten
+Met de data die we krijgen konden we kiezen uit de volgende opdrachten:
 ```
 (O2B-100)
 ALS Gebruiker WIL IK op al mijn devices een intuïtieve webapplicatie kunnen gebruiken
@@ -52,7 +52,7 @@ ALS Gebruiker WIL IK live op de hoogte gehouden worden van FLP informatie  (coun
 ZODAT Ik deze informatie kan gebruiken zonder de webapplicatie te moeten refreshen.
 ```
 
-In het volgende hoofdstuk leest u hoe ik deze opdracht heb uitgevoerd.
+_In het volgende hoofdstuk leest u hoe ik deze opdracht heb uitgevoerd._
 
 <a name="2"></a>
 
