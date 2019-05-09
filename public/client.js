@@ -193,14 +193,37 @@
     }
 
     // check if service worker is running
-    navigator.serviceWorker.getRegistrations().then(registrations => {
-        if(registrations.length == 1) {
-            console.log("Service Worker is running in background...")
+    var swbutton = document.getElementById('swbutton');
+    var notificationstext = document.getElementById('notificationstext');
+    var serviceWorkerOn = false;
+
+    function checkIfServiceWorkerIsRunning() {
+        navigator.serviceWorker.getRegistrations().then(registrations => {
+            if(registrations.length == 1) {
+                serviceWorkerOn = true;
+                swbutton.innerHTML = "Turn Off Notifications"
+                notificationstext.innerHTML = "Notifications are turned on."
+            } else {
+                serviceWorkerOn  = false;
+                swbutton.innerHTML = "Turn On Notifications"
+                notificationstext.innerHTML = "Notifications are turned off."
+            }
+        });
+    }
+    
+
+    var swbutton = document.getElementById('swbutton');
+    swbutton.addEventListener('click', function() {
+        if(serviceWorkerOn) {
+            disableWorker();
+            checkIfServiceWorkerIsRunning();
         } else {
             registerWorker();
+            checkIfServiceWorkerIsRunning();
         }
-    });
+    })
 
+    checkIfServiceWorkerIsRunning();
     
 })();
 
