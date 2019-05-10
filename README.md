@@ -6,8 +6,8 @@ _Voor het derde (en laatste) project van deze minor bouwt iedere student eigen p
 ## Table of Content
 1. [Opdracht](#1)
 2. [Uitvoering](#2)
-- 2.1 - Het plan
-- 2.2 - De Uitvoering
+2.1 - Het plan
+2.2 - De Uitvoering
 
 <a name="1"></a>
 
