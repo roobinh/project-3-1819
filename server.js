@@ -1,12 +1,20 @@
 //server.js ('npm start')
 const express = require('express')
-// const bootstrap = require('bootstrap')
-// const jquery = require('jquery')
 const webpush = require('web-push')
 const bodyParser = require('body-parser')
+const socket = require('socket.io')
+const fs = require('fs');
 
 const app = express()
 const port = process.env.PORT || 2500
+
+var server = app.listen(port, () => console.log(`App running, listening on port ${port}!`))
+
+var io = socket(server);
+
+io.on('connection', function(socket) {
+    console.log(socket.id);
+})
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -58,6 +66,23 @@ app.post('/subscribe', (req, res) => {
     webpush.sendNotification(subscription, payload).catch(err => console.log(err))
 })
 
+const filePath = "public/data/runs.json";
+
+fs.watch(filePath, function(eventName, filename) {
+    if(filename) {
+        console.log(filename + 'changed')
+
+        var data = fs.readFileSync(filePath);
+        let json = JSON.parse(data);
+        io.emit('newRun', {title: "data changed"})
+    }
+})
 
 
-app.listen(port, () => console.log(`App running, listening on port ${port}!`))
+
+
+
+
+
+
+

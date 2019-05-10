@@ -69,9 +69,11 @@ Het plan voor deze opdracht is het volgende: De gekregen data wordt netjes in ee
 
 Om met de data te kunnen werken, moet er eerst data gegenereerd worden. Om deze data zo real-time mogelijk te lezen, heb ik eerst geprobeerd om de [jiskefet-ui](https://github.com/SoftwareForScience/jiskefet-ui) en [jiskefet-api](https://github.com/SoftwareForScience/jiskefet-api) lokaal met MySQL te draaien. Op deze manier kon ik dan lokaal database query's uitvoeren en data verwerken. Tot mijn grote spijt ben ik na twee dagen hard proberen en bugs fixen erachter gekomen dat de API alleen op linux machines draait. Hierdoor ben ik helaas anderhalve dag aan tijd verloren.
 
-Omdat het niet is gelukt de API lokaal te draaien, gebruik ik nu de [online api](http://cmd.jiskefet.io/). Deze ondersteunt helaas geen sockets, dus heb ik geen socket verbinding kunnen gebruiken. Wat er nu gebeurt is het volgende:
+Omdat het niet is gelukt de API lokaal te draaien, gebruik ik nu de [online api](http://cmd.jiskefet.io/). Deze ondersteunt helaas geen sockets, dus heb ik geen socket verbinding kunnen gebruiken tussen client en de API. Wat er nu gebeurt is het volgende:
 
-Er draait een NodeJS server. Bij het openen van de site stuurt de server een request naar de API. Deze data wordt vervolgens (net als op de site) netjes op de site weergegeven. Vervolgens stuurt de site elke 10 seconden een nieuwe request, en vergelijkt het antwoord hiervan met de vorige request. Is er een verandering -> stuur dan een melding naar de gebruiker.
+Er draait een NodeJS server. Bij het openen van de website maakt de client een socket verbinding met de server. Deze server checkt wanneer er een verandering plaats vind in het bestand 'runs.json' (wat in de toekomst de online api is). Als er een file change is stuurt de server een bericht naar de client met de nieuwe data. De client reageert hierop door: 
+- De nieuwe data weer te geven in de tabel
+- Een push notificatie te geven
 
 <a name="4"></a>
 

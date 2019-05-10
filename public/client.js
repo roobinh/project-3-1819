@@ -7,6 +7,14 @@
     var oldData = "";
     var firstTime = true;
 
+    // Socket Verbinding
+    console.log('making connection to host...')
+    var socket = io();
+
+    socket.on('newRun', function(data) {
+        checkForFileChange();
+    })
+
     // fill table on load
     checkForFileChange(url, key);
 
@@ -113,7 +121,7 @@
 
     // check for file change every 10 seconds
     setInterval(function() {
-        checkForFileChange(url, key);
+        // checkForFileChange(url, key);
     }, 10000);
 
 
