@@ -6,8 +6,8 @@ _Voor het derde (en laatste) project van deze minor bouwt iedere student eigen p
 ## Table of Content
 1. [Opdracht](#1)
 2. [Uitvoering](#2)
-3. [](#3)
-4. [Conclusie](#4)
+- 2.1 - Het plan
+- 2.2 - De Uitvoering
 
 <a name="1"></a>
 
@@ -71,11 +71,12 @@ Om met de data te kunnen werken, moet er eerst data gegenereerd worden. Om deze 
 
 Omdat het niet is gelukt de API lokaal te draaien, gebruik ik nu de [online api](http://cmd.jiskefet.io/). Deze ondersteunt helaas geen sockets, dus heb ik geen socket verbinding kunnen gebruiken tussen client en de API. Wat er nu gebeurt is het volgende:
 
-Er draait een NodeJS server. Bij het openen van de website maakt de client een socket verbinding met de server. Deze server checkt wanneer er een verandering plaats vind in het bestand 'runs.json' (wat in de toekomst de online api is). Als er een file change is stuurt de server een bericht naar de client met de nieuwe data. De client reageert hierop door: 
+Er draait een NodeJS server. Bij het openen van de website gebeuren er twee dingen:
+- De client haalt de nodige informatie op uit de API
+- De client maakt een socket verbinding met de server
+  
+De server checkt wanneer er een verandering plaats vind in het bestand 'runs.json' (wat in de toekomst de online api is). Als er een file change is stuurt de server een bericht naar de client met de nieuwe data. De client reageert hierop door: 
 - De nieuwe data weer te geven in de tabel
 - Een push notificatie te geven
 
-<a name="4"></a>
-
-## Hoofdstuk 3 | Conclusie
 
