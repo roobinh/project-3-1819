@@ -63,7 +63,7 @@ _In het volgende hoofdstuk leest u hoe ik deze opdracht heb uitgevoerd._
 ## Hoofdstuk 2 | Uitvoering
 **2.1 - Het plan**
 
-Het plan voor deze opdracht is het volgende: De gekregen data wordt netjes in een tabel verwerkt. Zodra er een nieuwe 'run' wordt toegevoegd, krijgt de gebruiker een Google Chrome melding (d.m.v. Service Workers). Op deze manier ben je op de hoogte van nieuwe updates.
+Het plan voor deze opdracht is het volgende: De gekregen data wordt netjes in een tabel verwerkt. Zodra er een nieuwe 'run' wordt toegevoegd, krijgt de gebruiker een Google Chrome melding (d.m.v. Service Workers). Op deze manier ben je op de hoogte van nieuwe updates. De connectie tussen client en server wordt gedaan d.m.v. sockets.
 
 **2.2 - De uitvoering**
 
@@ -72,7 +72,7 @@ _Om met de data te kunnen werken, moet er eerst data gegenereerd worden. Om deze
 Omdat het niet is gelukt de API lokaal te draaien, gebruik ik nu de [online api](http://cmd.jiskefet.io/). Deze ondersteunt helaas geen sockets, dus heb ik geen socket verbinding kunnen gebruiken tussen client en de API. Wat er nu gebeurt is het volgende:
 
 Er draait een NodeJS server. Bij het openen van de webpagina op de client gebeuren er twee dingen:
-- De client haalt de nodige informatie op uit de API
+- De client haalt de nodige informatie op uit de API en verwerkt deze in de tabel
 - De client maakt een socket verbinding met de server
   
 De server checkt wanneer er een verandering plaats vind in het bestand 'runs.json' (wat in de toekomst de online api is). Als er een file change is stuurt de server een bericht naar de client met de nieuwe data. De client reageert hierop door: 
