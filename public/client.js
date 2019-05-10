@@ -8,8 +8,9 @@
     var firstTime = true;
 
     // Socket Verbinding
-    console.log('making connection to host...')
+    console.log('Making socket connection to host...')
     var socket = io();
+    console.log("Socket connection made!")
 
     socket.on('newRun', function(data) {
         checkForFileChange();
@@ -20,7 +21,7 @@
 
     // get request, checks if new file is same as previous file
     function checkForFileChange(url, key) {
-        console.log("checking for file change");
+        console.log("Loading runs.json...");
 
         var xmlHttp = new XMLHttpRequest();
         // xmlHttp.open("GET", url, false);
@@ -29,9 +30,8 @@
         xmlHttp.send();
 
         if(xmlHttp.responseText === oldData) {
-            console.log("Same Data.")
+            // Do Nothing
         } else {
-            console.log("Data Changed!")
             oldData = xmlHttp.responseText;
             fillTable(JSON.parse(xmlHttp.responseText));
 
@@ -118,12 +118,6 @@
             cell10.appendChild(text11);
         }
     }
-
-    // check for file change every 10 seconds
-    setInterval(function() {
-        // checkForFileChange(url, key);
-    }, 10000);
-
 
     // ------------------- Service Worker -------------------------
 

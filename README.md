@@ -67,11 +67,11 @@ Het plan voor deze opdracht is het volgende: De gekregen data wordt netjes in ee
 
 **2.2 - De uitvoering**
 
-Om met de data te kunnen werken, moet er eerst data gegenereerd worden. Om deze data zo real-time mogelijk te lezen, heb ik eerst geprobeerd om de [jiskefet-ui](https://github.com/SoftwareForScience/jiskefet-ui) en [jiskefet-api](https://github.com/SoftwareForScience/jiskefet-api) lokaal met MySQL te draaien. Op deze manier kon ik dan lokaal database query's uitvoeren en data verwerken. Tot mijn grote spijt ben ik na twee dagen hard proberen en bugs fixen erachter gekomen dat de API alleen op linux machines draait. Hierdoor ben ik helaas anderhalve dag aan tijd verloren.
+_Om met de data te kunnen werken, moet er eerst data gegenereerd worden. Om deze data zo real-time mogelijk te lezen, heb ik eerst geprobeerd om de [jiskefet-ui](https://github.com/SoftwareForScience/jiskefet-ui) en [jiskefet-api](https://github.com/SoftwareForScience/jiskefet-api) lokaal met MySQL te draaien. Op deze manier kon ik dan lokaal database query's uitvoeren en data verwerken. Tot mijn grote spijt ben ik na twee dagen hard proberen en bugs fixen erachter gekomen dat de API alleen op linux machines draait. Hierdoor ben ik helaas anderhalve dag aan tijd verloren._
 
 Omdat het niet is gelukt de API lokaal te draaien, gebruik ik nu de [online api](http://cmd.jiskefet.io/). Deze ondersteunt helaas geen sockets, dus heb ik geen socket verbinding kunnen gebruiken tussen client en de API. Wat er nu gebeurt is het volgende:
 
-Er draait een NodeJS server. Bij het openen van de website gebeuren er twee dingen:
+Er draait een NodeJS server. Bij het openen van de webpagina op de client gebeuren er twee dingen:
 - De client haalt de nodige informatie op uit de API
 - De client maakt een socket verbinding met de server
   
